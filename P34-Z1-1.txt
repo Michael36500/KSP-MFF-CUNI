@@ -1,4 +1,4 @@
-Kevin se rozhodl vycestovat na Alpha Centauri Prime, ale byl velmi zmatený z místního kalendáře, který se od kalendáře planety Země trochu liší. Jeden rok by tam totiž astronomicky správně měl trvat pouze 42.3125 dne. Domorodci používají systém, ve kterém má jeden jejich rok 42 dní, ale každý třetí rok je přestupný (a má tedy 43 dní). Výjimku tvoří každý 48. rok, který přestupný není. Jejich kalendář začíná rokem jedna (tedy historicky první přestupný rok byl rok 3). Pomozte Kevinovi zjistit, kolik dní na Alpha Centauri Prime vlastně zůstane, pokud přijede na začátku roku číslo x a odjede na konci roku číslo y. Započítáváme i dny příjezdu a odjezdu. Toto je praktická open-data úloha. V odevzdávátku si necháte vygenerovat vstupy a odevzdáte příslušné výstupy. Záleží jen na vás, jak výstupy vyrobíte. Vstup: Vaším úkolem bude zodpovědět N otázek. Na prvním řádku je celkový počet N dvojic roků. Následuje N řádků s dvojicemi celých čísel x,y ≥ 1, kde x ≤ y, x značí rok, na jehož začátku Kevin na Alpha Centauri Prime dorazí, a y značí rok, na jehož konci Kevin odjede. Oba roky se vejdou do 32bitové celočíselné proměnné.
+Kevin se rozhodl vycestovat na Alpha Centauri Prime, ale byl velmi zmatený z místního kalendáře, který se od kalendáře planety Země trochu liší. Jeden rok by tam totiž astronomicky správně měl trvat pouze 42.3125 dne. Domorodci používají systém, ve kterém má jeden jejich rok 42 dní, ale každý třetí rok je přestupný (a má tedy 43 dní). Výjimku tvoří každý 48. rok, který přestupný není. Jejich kalendář začíná rokem jedna (tedy historicky první přestupný rok byl rok 3). Pomozte Kevinovi zjistit, kolik dní na Alpha Centauri Prime vlastně zůstane, pokud přijede na začátku roku číslo x a odjede na konci roku číslo y. Započítáváme i dny příjezdu a odjezdu. Toto je praktická open-data úloha. V odevzdávátku si necháte vygenerovat vstupy a odevzdáte příslušné výstupy. Záleží jen na vás, jak výstupy vyrobíte. Vstup: Vaším úkolem bude zodpovědět N otázek. Na prvním řádku je celkový počet N dvojic roků. Následuje N řádků s dvojicemi celých čísel x,y ≥ 1, kde x ≤ y, x značí rok, na jehož začátku Kevin na Alpha Centauri Prime dorazí, a y značí rok, na jehož konci Kevin odjede. Oba roky se vejdou do 32bitové celočíselné proměnné (4294967296).
 
 Výstup: N řádků, na každém z nich celočíselný počet dní, které Kevin na Alpha Centauri Prime stráví. Pozor, počet dní se do 32bitové celočíselné proměnné vejít nemusí.x
 Ukázkový vstup:
@@ -12,6 +12,6 @@ Ukázkový výstup:
 
 84
 169
-4273
+4273    
 
 protože nepotřebuji a jsem línej dělat něco smart, tak prostě udělám list s počtem dní pro index roku, a z toho to budu brát...
