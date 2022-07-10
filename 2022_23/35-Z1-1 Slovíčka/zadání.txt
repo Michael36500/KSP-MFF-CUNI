@@ -1,0 +1,8 @@
+V Kevinově třídě píší na závěr roku test z angličtiny na překlad slovíček. Kevin ví, že není moc dobrý na jazyky, proto se je učil nazpaměť dlouho po nocích. Teď má pocit, že by dokázal vyjmenovat všechna anglická slovíčka, která byla na seznamu na naučení. Není si už ale vůbec jistý, jestli něco dovede přiřadit k českému překladu.
+Hned první otázka ho dostala. Jak se řekne anglicky dikobraz? Kevin netušil. Vzpomněl si ale, že dikobraz byl na páté stránce slovíček nahoře, kousek nad ním bylo prase, což je anglicky pig, a kousek pod ním nosorožec, což je rhinoceros. Jelikož byl slovníček seřazen podle abecedy, došlo mu, že dikobraz se musí přeložit na něco, co je podle abecedy mezi pig a rhinoceros. Kolik takových slovíček vůbec je?
+
+Toto je praktická open-data úloha. V odevzdávátku si necháte vygenerovat vstupy a odevzdáte příslušné výstupy. Záleží jen na vás, jak výstupy vyrobíte.
+
+Formát vstupu: Na prvním řádku jsou dvě čísla: počet slovíček ve slovníku N a počet otázek v testu Q. Na následujících N řádcích je jedno slovo, které sestává z nejvýše 20 znaků malé a velké anglické abecedy. Tato slova nemusí být nutně abecedně seřazena. Na dalších Q řádkách jsou vždy dvě různá slova ze slovníku oddělena mezerou.
+
+Formát výstupu: Pro každý z Q dotazů vypište na samostatný řádek jediné číslo – počet slovíček, která jsou v abecedním uspořádání mezi dvojicí slovíček na vstupu.

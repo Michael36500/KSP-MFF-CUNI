@@ -1,0 +1,14 @@
+7 2
+platypus
+pig
+porcupine
+rhinoceros
+rabbit
+possum
+panda
+pig rhinoceros
+rabbit porcupine
+
+
+4
+1
