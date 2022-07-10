@@ -1,0 +1,6 @@
+1. získám list slovíček
+2. seřadím podle abecedy
+3. loop pro ty co neví
+    a) najde pozici/index 1. slovíčka
+    b) -//- 2. slovíčka
+    c) odpověď = rozdíl indexů
