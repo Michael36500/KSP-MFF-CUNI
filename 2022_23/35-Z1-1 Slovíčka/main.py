@@ -1,7 +1,15 @@
 inputf = "2022_23/35-Z1-1 Slovíčka/vstup"
 file = open(inputf, "r")
+inp = []
 
-print(int(file.read(1)))
+rng = int(file.read(1))
+
+file.readline()
+
+for line in range(rng):
+    temp = file.readline()
+    temp = temp.replace("\n", "" )
+    inp.append(temp)
 
 
 
@@ -9,13 +17,13 @@ print(int(file.read(1)))
 
 file.close()
 
-inp = ["platypus", "pig", "porcupine", "rhinoceros", "rabbit", "possum", "panda"]
+print(inp)
 
 first = "pig"
 last = "rhinoceros"
 
 sort = sorted(inp)
-print(sort)
+# print(sort)
 
 whfirst = sort.index(first)
 whlast = sort.index(last)
