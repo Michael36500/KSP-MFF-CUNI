@@ -2,19 +2,26 @@
 from tqdm import tqdm
 
 # load file
-inputf = "2022_23/35-Z1-1 Slovíčka/vstup"
+inputf = "2022_23/35-Z1-1 Slovíčka/05.in"
 file = open(inputf, "r")
 
 # load slovíčka
 inp = []
 
-# zjistím počet dalších řádků s slovíčky
-rng = int(file.read(1))
 # přečtu 1. řádek
-file.readline()
+line = file.readline()
+# loop pro najdení počtu slovíček v testu
+pomezere = False
+rng = ""
+for a in line:
+    if a == " " and pomezere == False:
+        pomezere = not pomezere
+        continue
+    elif pomezere == False:
+        rng = str(rng) + str(a)
 
 # loop přes slovíčka, appenduju do inp
-for line in range(rng):
+for line in range(int(rng)):
     temp = file.readline()
     temp = temp.replace("\n", "" )
     inp.append(temp)
