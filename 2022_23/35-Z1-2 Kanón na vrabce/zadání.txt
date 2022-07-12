@@ -1,0 +1,11 @@
+Už toho mám vážně dost! Proč jdou jen po mně?“ zalamentoval Kevin, když přišel na svou zahrádku. Letní počasí v něm se Sárou probudilo zápal pro zahradničení a začali se společně předhánět v pěstování slunečnic. Jenže ke Kevinově nelibosti se tato soutěž zalíbila i vrabcům, kteří se teď na jeho zahradě napásají do sytosti. Co teď, aby nevypadal před kamarádkou trapně?
+
+Naštěstí je tu ještě Zuzka, která přichází s poněkud ambiciózním plánem, takovým kanónem na vrabce. A to doslova. Ze skladu vyřazeného vojenského materiálu nosí jeden kanón za druhým připevňuje je ke sloupům. „Teď už si na tebe nepřijdou“, povídá spokojeně. Kevin je nedůvěřivý. Výhra ho láká, ale bojí se, jestli v tomto rozestavení nemůže jeden kanón trefit druhý a tím způsobit explozi, která zničí nejen slunečnice, ale i celou zahradu. Pomůžete mu s rozhodováním? Na obrázku jsou v bodech A až D připevněny kanóny. Každý kanón umí střílet do čtyř směrů diagonálně. Ohrožují se tedy kanóny A a C a také B a C. Kanóny A a B se neohrožují, protože je mezi nimi kanón C.
+
+Toto je praktická open-data úloha. V odevzdávátku si necháte vygenerovat vstupy a odevzdáte příslušné výstupy. Záleží jen na vás, jak výstupy vyrobíte.
+
+Formát vstupu: Na prvním řádku se nacházejí mezerou oddělená čísla W a H udávající po po řadě šířku a výšku Kevinovy zahrady a číslo N. Na následujících N řádcích jsou mezerou oddělené horizontální a vertikální souřadnice kanónů v mezích zahrady. Každý kanón míří do čtyř směrů po diagonálách a dostřelí na neomezenou vzdálenost.
+
+Formát výstupu: Na jediný řádek vypište mezerou oddělená čísla libovolných dvou kanónů, které se ohrožují. Kanóny číslujeme od nuly v pořadí, jak byly na vstupu. Slibujeme, že alespoň jedna taková dvojice existuje.
+
+Ohrožují se dvojice kanonů ležící na stejné diagonále, mezi kterými neleží žádný další kanón.
