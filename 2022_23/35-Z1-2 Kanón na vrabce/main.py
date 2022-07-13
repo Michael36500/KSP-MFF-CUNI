@@ -1,12 +1,15 @@
+# importy
 import numpy as np
-# 1. array o velikosti zahrady
-y = 6  #šířka
-x = 10 #výška
 
+# nastavení velikosti zahrady
+y = 6  #šířka
+x = 6 #výška
+
+# generuju pole polí o velikosti zahrady
 zahrada = np.zeros((x, y))
 zahrada -= 1
-# print(zahrada)
 
+# import pole s pozicemi kanónů
 kanony = [[1, 2], [4, 5], [2, 3], [4, 3]]
 
 for lpnb in range(len(kanony)):
