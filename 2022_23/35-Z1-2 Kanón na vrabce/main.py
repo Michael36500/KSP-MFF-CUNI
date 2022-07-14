@@ -2,8 +2,8 @@
 import numpy as np
 
 # nastavení velikosti zahrady
-y = 6  #šířka
 x = 6 #výška
+y = 6  #šířka
 
 # generuju pole polí o velikosti zahrady
 zahrada = np.zeros((x, y))
@@ -26,15 +26,18 @@ for lpnb in range(len(kanony)):
 for lpnb in range(len(kanony)):
     # získám X a Y kanónu
     kanon = kanony[lpnb]
-    print(kanon)
+    # print(kanon)
     
     # najdu začáteční Y pozici (přes X se loopuju)
     start_y = kanon[1] - kanon[0]
-    print(start_y)
-
+    # print(start_y)
+    act_y = start_y
     # loop pro jednu úhlopříčku
-    for a in range(x):
-        if a < 0:
-            continue
-        
+    # range x === loop přes jednotlivé sloupce
 
+    for sloupec in range(x + 10):
+        act_y += 1
+        if act_y <= 1 or act_y > x: #idk it just works
+            print(act_y)
+
+    break
