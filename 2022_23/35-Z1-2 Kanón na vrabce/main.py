@@ -24,6 +24,7 @@ for lpnb in range(len(kanony)):
 
 # loop checkující jestli na úhlopříčce není už nějakej, potřeba dodělat
 for lpnb in range(len(kanony)):
+    print(zahrada)
     # získám X a Y kanónu
     kanon = kanony[lpnb]
     # print(kanon)
@@ -34,10 +35,13 @@ for lpnb in range(len(kanony)):
     act_y = start_y
     # loop pro jednu úhlopříčku
     # range x === loop přes jednotlivé sloupce
+    for sloupec in range(x):
+        if act_y < 0 or act_y >= x: #idk it just works
+            pass
+        else:
+            # print(act_y, sloupec)
+            print(zahrada[act_y, sloupec])
 
-    for sloupec in range(x + 10):
+
         act_y += 1
-        if act_y <= 1 or act_y > x: #idk it just works
-            print(act_y)
-
     break
