@@ -26,7 +26,7 @@ out = []
 
 # loop checkující jestli na úhlopříčce není už nějakej, potřeba dodělat
 for lpnb in range(len(kanony)):
-    print(zahrada)
+    # print(zahrada)
     # získám X a Y kanónu
     kanon = kanony[lpnb]
     
@@ -36,36 +36,39 @@ for lpnb in range(len(kanony)):
     act_y = start_y
     # loop pro jednu úhlopříčku
     # range x === loop přes jednotlivé sloupce
-    print()
+    # print()
     closest_before = None
     closest_after = None
     after_thisone = False
     tempup = []
+
+
+    
     for sloupec in range(x):
-        tempdown = []
+        temp = []
         if act_y < 0 or act_y >= x: #idk it just works
             pass
         else:
-            # print(act_y, sloupec)
-            print(zahrada[act_y, sloupec])
-            if zahrada[act_y, sloupec] == lpnb:
-                after_thisone = True
-                continue
+            if zahrada[act_y, sloupec] != -1:
+                # print(act_y, sloupec)
+                # print(zahrada[act_y, sloupec])
+                if zahrada[act_y, sloupec] == lpnb:
+                    after_thisone = True
+                    continue
 
-            if not after_thisone: # means when you are before canon that you are checking
-                closest_before = zahrada[act_y, sloupec]
+                if not after_thisone: # means when you are before canon that you are checking
+                    closest_before = zahrada[act_y, sloupec]
 
-            if after_thisone: # means when you are after canon that you are checking
-                closest_after = zahrada[act_y, sloupec]
+                if after_thisone: # means when you are after canon that you are checking
+                    closest_after = zahrada[act_y, sloupec]
 
-        tempdown.append(closest_before)
-        tempdown.append(closest_after)
-        tempdown.append(lpnb)
-        tempdown.append("next one")
+        temp.append(closest_before)
+        temp.append(closest_after)
+        temp.append(lpnb)
 
-        tempup.append(tempdown)
 
         act_y += 1
-    out.append(tempup)
+    out.append(temp)
     # break
+print(zahrada)
 print(out)
