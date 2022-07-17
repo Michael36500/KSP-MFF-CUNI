@@ -26,7 +26,7 @@ for lpnb in range(len(kanony)):
 
 out = []
 # loop checkující jestli na úhlopříčce není už nějakej
-for lpnb in range(len(kanony)):
+for lpnb in tqdm(range(len(kanony))):
     # print(zahrada)
     # získám X a Y kanónu
     kanon = kanony[lpnb]
@@ -77,7 +77,7 @@ for lpnb in range(len(kanony)):
 
 out_nao = []
 # loop checkující jestli na úhlopříčce není už nějakej
-for lpnb in range(len(kanony)):
+for lpnb in tqdm(range(len(kanony))):
     # print(zahrada)
     # získám X a Y kanónu
     kanon = kanony[lpnb]
@@ -127,9 +127,22 @@ for lpnb in range(len(kanony)):
 
 
 
-print(zahrada)
-print(out)
-print(out_nao)
+# print(zahrada)
+# print(out)
+# print(out_nao)
 
 for a in range(len(out)):
-    if out[a, 0] != None:
+    if out[a][0] != None:
+        print(a + 1, out[a][0] + 1)
+        exit()
+    if out[a][1] != None:
+        print(a + 1, out[a][1] + 1)
+        exit()
+
+for a in range(len(out_nao)):
+    if out_nao[a][0] != None:
+        print(a + 1, out_nao[a][0] + 1)
+        exit()
+    if out_nao[a][1] != None:
+        print(a + 1, out_nao[a][1] + 1)
+        exit()
