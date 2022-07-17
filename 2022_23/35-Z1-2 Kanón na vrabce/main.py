@@ -24,7 +24,7 @@ for lpnb in range(len(kanony)):
 
 out = []
 
-# loop checkující jestli na úhlopříčce není už nějakej, potřeba dodělat
+# loop checkující jestli na úhlopříčce není už nějakej
 for lpnb in range(len(kanony)):
     # print(zahrada)
     # získám X a Y kanónu
@@ -50,17 +50,21 @@ for lpnb in range(len(kanony)):
             pass
         else:
             if zahrada[act_y, sloupec] != -1:
+                tryit = True
                 # print(act_y, sloupec)
                 # print(zahrada[act_y, sloupec])
                 if zahrada[act_y, sloupec] == lpnb:
                     after_thisone = True
-                    continue
+                    tryit = False
+                if tryit:
+                    if not after_thisone: # means when you are before canon that you are checking
+                        closest_before = int(zahrada[act_y, sloupec])
 
-                if not after_thisone: # means when you are before canon that you are checking
-                    closest_before = zahrada[act_y, sloupec]
-
-                if after_thisone: # means when you are after canon that you are checking
-                    closest_after = zahrada[act_y, sloupec]
+                    if after_thisone: # means when you are after canon that you are checking
+                        closest_after = int(zahrada[act_y, sloupec])
+                        continue
+                    
+                        # print(zahrada[act_y, sloupec])
 
         temp.append(closest_before)
         temp.append(closest_after)
