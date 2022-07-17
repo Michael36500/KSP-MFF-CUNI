@@ -2,9 +2,27 @@
 from tqdm import tqdm
 import numpy as np
 
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/vstup"
+file = open(inputf, "r")
+
 # nastavení velikosti zahrady
-x = 6 #výška
-y = 6  #šířka
+line = file.readline()
+x_line = ""
+for a in line:
+    line = line[1:]
+    if a == " ":
+        break
+    x_line = str(x_line) + str(a)
+x = int(x_line) #výška
+
+y_line = ""
+for a in line:
+    if a == " ":
+        break
+    y_line = str(y_line) + str(a)
+y = int(y_line)  #šířka
+
+print(x, y)
 
 # generuju pole polí o velikosti zahrady
 zahrada = np.zeros((x, y))
