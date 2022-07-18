@@ -2,7 +2,7 @@
 from tqdm import tqdm
 import numpy as np
 
-inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/02.in"
 file = open(inputf, "r")
 
 # nastavení velikosti zahrady
@@ -35,7 +35,14 @@ print(x, y, kolik)
 
 # generuju pole polí o velikosti zahrady
 zahrada = np.zeros((x, y))
-zahrada -= 1
+zahrada = []
+for _ in tqdm(range(x)):
+    temp = []
+    tmp = []
+    for _ in range(y):
+        temp.append(tmp)
+    zahrada.append(temp)
+# zahrada -= 1
 
 # import pole s pozicemi kanónů
 kanony = []
@@ -94,7 +101,7 @@ for lpnb in tqdm(range(len(kanony))):
     # print(start_y)
     start_y = kanon[1] - kanon[0]
     act_y = start_y
-    # loop pro jednu úhlopříčku
+    # loop pro; jednu úhlopříčku
     # range x === loop přes jednotlivé sloupce
     # print()
     closest_before = None
