@@ -187,28 +187,41 @@ for lpnb in tqdm(range(len(kanony))):
 
 
 # print(zahrada)
-# print(out)
-# print(out_nao)
+print(out)
+print(out_nao)
 
 escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
 
 for a in range(len(out)):
     if out[a][0] != None:
-        escribo.write(str(a + 1) + str(out[a][0] + 1))
-        print(str(a + 1) + str(out[a][0] + 1))
+        print(out[a][0])
+        escribo.write(str(out[a][0]))
+        escribo.write(" ")
+        escribo.write(str(a))
+        escribo.write("\n")
         exit()
+
     if out[a][1] != None:
-        escribo.write(str(a + 1) + str(out[a][1] + 1))
-        print(str(a + 1) + str(out[a][1] + 1))
+        print(out[a][1])
+        escribo.write(str(out[a][1]))
+        escribo.write(" ")
+        escribo.write(str(a))
+        escribo.write("\n")
         exit()
 
 for a in range(len(out_nao)):
     if out_nao[a][0] != None:
-        escribo.write(str(a + 1) + str(out_nao[a][0] + 1))
-        print(str(a + 1) + str(out_nao[a][0] + 1))
-        exit()
-    if out_nao[a][1] != None:
-        escribo.write(str(a + 1) + str(out_nao[a][1] + 1))
-        print(str(a + 1) + str(out_nao[a][1] + 1))
+        print(out_nao[a][0])
+        escribo.write(str(out_nao[a][0]))
+        escribo.write(" ")
+        escribo.write(str(a))
+        escribo.write("\n")
         exit()
 
+    if out_nao[a][1] != None:
+        print(out_nao[a][1])
+        escribo.write(str(out_nao[a][1]))
+        escribo.write(" ")
+        escribo.write(str(a))
+        escribo.write("\n")
+        exit()
