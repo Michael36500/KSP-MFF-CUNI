@@ -1,5 +1,4 @@
 # import
-from errno import WSAEDISCON
 from tqdm import tqdm
 import numpy as np
 
@@ -33,7 +32,7 @@ for a in line:
     kolikk = str(kolikk) + str(a)
 kolik = int(kolikk) 
 
-# print(x, y, kolik)
+print(x, y, kolik)
 
 
 # import pole s pozicemi kanónů
@@ -62,37 +61,50 @@ def read_kanon(lp):
     temp = []
     temp.append(x)
     temp.append(y)
-    # temp.append(lp)
+    temp.append(lp)
 
     kanony.append(temp)
 
 for a in range(kolik):
     read_kanon(a)
 
+kanony_sort = kanony.sort()
 print(kanony)
 
-def checkni_diagonaly(kanon):
-    # print(kanon, end = " ")
-    temp = x + kanon[1] - kanon[0]
-    # print(temp)
+
+def checkni_diagonaly(a):
+    global kanony
+    global x
+    global y
+
+    print(kanony[a])
+    kanon = kanony[a]
+    temp = kanon
+    while True:
+        temp[0] = temp[0] - 1
+        temp[1] = temp[1] - 1
+        if min(temp) == 0:
+            break
     return temp
 
-wasd = [] # zleva nahoře doprava dolů
-wdas = [] # zprava nahoře doleva dolů
-empty = []
+out2 = []
 
-for _ in range(x + y):
-    wasd.append(empty)
-    wdas.append(empty)
+for a in range(len(kanony)):
+    out2.append(checkni_diagonaly(a))
+
+duplicates = []
+for a in out2:
+    print(a)
+    if
+print(duplicates, "dups")
+
+for a in range(len(out2)):
+    if out2[a] == duplicates[0]:
+        print(out2[a])
+
+# find first kanon
+firstc = out2.index(duplicates[0])
+secondc = out2.index(duplicates[0], firstc + 1)
+print(firstc, secondc)
 
 
-for kanon in kanony:
-    print(wasd)
-    poradi = checkni_diagonaly(kanon)
-    temp = wasd[poradi]
-    temp.append(kanon[0])
-    wasd[poradi] = temp
-
-
-print(wasd)
-print(wdas)

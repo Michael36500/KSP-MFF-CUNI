@@ -1,5 +1,4 @@
 # import
-from errno import WSAEDISCON
 from tqdm import tqdm
 import numpy as np
 
@@ -33,7 +32,7 @@ for a in line:
     kolikk = str(kolikk) + str(a)
 kolik = int(kolikk) 
 
-# print(x, y, kolik)
+print(x, y, kolik)
 
 
 # import pole s pozicemi kanónů
@@ -69,30 +68,53 @@ def read_kanon(lp):
 for a in range(kolik):
     read_kanon(a)
 
+kanony_sort = kanony.sort()
 print(kanony)
 
-def checkni_diagonaly(kanon):
-    # print(kanon, end = " ")
-    temp = x + kanon[1] - kanon[0]
-    # print(temp)
+
+def checkni_diagonaly(a):
+    global kanony
+    global x
+    global y
+
+    print(kanony[a])
+    kanon = kanony[a]
+    temp = kanon
+    while True:
+        temp[0] = temp[0] - 1
+        temp[1] = temp[1] - 1
+        if min(temp) == 0:
+            break
     return temp
 
-wasd = [] # zleva nahoře doprava dolů
-wdas = [] # zprava nahoře doleva dolů
-empty = []
+diagonals = []
+for a in range(kolik):
+    diagonals.append(checkni_diagonaly(a))
 
-for _ in range(x + y):
-    wasd.append(empty)
-    wdas.append(empty)
+print(diagonals)
 
+duplicates = [number for number in diagonals if diagonals.count(number) > 1]
+unique_duplicates = set(duplicates)
 
-for kanon in kanony:
-    print(wasd)
-    poradi = checkni_diagonaly(kanon)
-    temp = wasd[poradi]
-    temp.append(kanon[0])
-    wasd[poradi] = temp
+print(duplicates, "dups", unique_duplicates, "uniq")
 
+def checkni_diagonaly_sort(a):
+    global kanony
+    global x
+    global y
 
-print(wasd)
-print(wdas)
+    print(kanony[a])
+    kanon = kanony[a]
+    temp = kanon
+    while True:
+        temp[0] = temp[0] - 1
+        temp[1] = temp[1] - 1
+        if min(temp) == 0:
+            break
+    return temp
+
+diagonals_sort = []
+for a in range(kolik):
+    diagonals_sort.append(checkni_diagonaly_sort(a))
+
+print(diagonals_sort)
