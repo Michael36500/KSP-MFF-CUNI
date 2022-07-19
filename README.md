@@ -1,2 +1,1 @@
 # KSP-MFF-CUNI
- 

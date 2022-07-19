@@ -61,7 +61,7 @@ def read_kanon(lp):
     temp = []
     temp.append(x)
     temp.append(y)
-    temp.append(lp)
+    # temp.append(lp)
 
     kanony.append(temp)
 
@@ -87,24 +87,34 @@ def checkni_diagonaly(a):
             break
     return temp
 
-out2 = []
+diagonals = []
+for a in range(kolik):
+    diagonals.append(checkni_diagonaly(a))
 
-for a in range(len(kanony)):
-    out2.append(checkni_diagonaly(a))
+print(diagonals)
 
-duplicates = []
-for a in out2:
-    print(a)
-    if
-print(duplicates, "dups")
+duplicates = [number for number in diagonals if diagonals.count(number) > 1]
+unique_duplicates = set(duplicates)
 
-for a in range(len(out2)):
-    if out2[a] == duplicates[0]:
-        print(out2[a])
+print(duplicates, "dups", unique_duplicates, "uniq")
 
-# find first kanon
-firstc = out2.index(duplicates[0])
-secondc = out2.index(duplicates[0], firstc + 1)
-print(firstc, secondc)
+def checkni_diagonaly_sort(a):
+    global kanony
+    global x
+    global y
 
+    print(kanony[a])
+    kanon = kanony[a]
+    temp = kanon
+    while True:
+        temp[0] = temp[0] - 1
+        temp[1] = temp[1] - 1
+        if min(temp) == 0:
+            break
+    return temp
 
+diagonals_sort = []
+for a in range(kolik):
+    diagonals_sort.append(checkni_diagonaly_sort(a))
+
+print(diagonals_sort)
