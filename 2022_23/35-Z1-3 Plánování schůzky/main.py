@@ -2,7 +2,7 @@
 from tqdm import tqdm
 
 # načtu vstup
-inputf = "2022_23/35-Z1-3 Plánování schůzky/vstup"
+inputf = "2022_23/35-Z1-3 Plánování schůzky/03.in"
 file = open(inputf, "r")
 
 # zjistím počet organizátorů
@@ -38,19 +38,41 @@ def read_dny():
 
     organ.append(temp)
 
-for a in range(pocet):
+print("read")
+for a in tqdm(range(pocet)):
     read_dny()
 
-maximum = 0
 
-for a in organ:
+maximum = 0
+print("maximum")
+for a in tqdm(organ):
     for b in a:
         if b > maximum:
             maximum = b
 
 dny = []
 
-for _ in range(maximum):
-    dny.append(0)
+print("pole")
+dny = [0] * (maximum + 1)
+# for _ in tqdm(range(maximum + 1)):
+#     dny.append(0)
 
-for
+
+print("change pole")
+for a in tqdm(organ):
+    # print(a[0], a[1])
+    for b in tqdm(range(a[0], a[1] + 1)):
+        dny[b] = dny[b] + 1
+
+# print(dny)
+
+
+wrote = "2022_23/35-Z1-3 Plánování schůzky/out.txt"
+escribo = open(wrote, "w")
+
+escribo.write(str(dny.index(max(dny))))
+escribo.write(" ")
+escribo.write(str(max(dny)))
+
+# # print(max(dny) - 1)
+# # print((dny[max(dny) + 1]))
