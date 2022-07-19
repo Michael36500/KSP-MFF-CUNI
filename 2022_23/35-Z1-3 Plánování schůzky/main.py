@@ -8,8 +8,6 @@ file = open(inputf, "r")
 # zjistím počet organizátorů
 pocet = int(file.readline())
 
-print(pocet)
-
 # import pole s volnými dny
 organ = []
 def read_dny():
@@ -43,11 +41,16 @@ def read_dny():
 for a in range(pocet):
     read_dny()
 
-print(max(organ))  
+maximum = 0
+
+for a in organ:
+    for b in a:
+        if b > maximum:
+            maximum = b
 
 dny = []
 
-for _ in range(max(organ)):
+for _ in range(maximum):
     dny.append(0)
 
-print(dny)
+for
