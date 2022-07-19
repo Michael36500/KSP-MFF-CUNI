@@ -1,4 +1,5 @@
 # import
+from errno import WSAEDISCON
 from tqdm import tqdm
 import numpy as np
 
@@ -70,18 +71,37 @@ for a in range(kolik):
 
 print(kanony)
 
-def checkni_diagonaly(inp):
-    print(inp, end = " ")
-    kanon = inp
-    # temp = kanon
-    temp = kanon[1] - kanon[0]
-    # while True:
-    #     temp[0] = temp[0] - 1
-    #     temp[1] = temp[1] - 1
-    #     if min(temp) == 0:
-    #         break
-    print(temp)
+def checkni_diagonaly(kanon):
+    # print(kanon, end = " ")
+    temp = x + kanon[1] - kanon[0]
+    # print(temp)
     return temp
 
+wasd = [] # zleva nahoře doprava dolů
+wdas = [] # zprava nahoře doleva dolů
+empty = []
 
-checkni_diagonaly([1,2])
+for _ in range(x + y):
+    wasd.append(empty)
+    wdas.append(empty)
+
+
+for kanon in kanony:
+    where = checkni_diagonaly(kanon)
+    temp = wasd
+    temp = temp[where]
+    print(temp)
+    temp.append(kanon[0])
+    print(temp)
+    # temp.sort()
+
+    # print(where)
+    print(wasd)
+    # print(temp)
+    # print(wasd[where])
+    # print()
+    # wasd[where] = temp
+
+
+print(wasd)
+print(wdas)
