@@ -1,5 +1,4 @@
 # import
-from errno import WSAEDISCON
 from tqdm import tqdm
 import numpy as np
 
@@ -59,12 +58,12 @@ def read_kanon(lp):
         y_line = str(y_line) + str(a)
     y = int(y_line)  #šířka
 
-    temp = []
-    temp.append(x)
-    temp.append(y)
-    # temp.append(lp)
+    kanontmp = []
+    kanontmp.append(x)
+    kanontmp.append(y)
+    # kanontmp.append(lp)
 
-    kanony.append(temp)
+    kanony.append(kanontmp)
 
 for a in range(kolik):
     read_kanon(a)
@@ -78,21 +77,26 @@ def checkni_diagonaly(kanon):
     return temp
 
 wasd = [] # zleva nahoře doprava dolů
-wdas = [] # zprava nahoře doleva dolů
+something_really_different = [] # zprava nahoře doleva dolů
 empty = []
+
 
 for _ in range(x + y):
     wasd.append(empty)
-    wdas.append(empty)
+    something_really_different.append(empty)
 
+print(wasd)
+print(something_really_different)
 
-for kanon in kanony:
-    print(wasd)
-    poradi = checkni_diagonaly(kanon)
-    temp = wasd[poradi]
-    temp.append(kanon[0])
-    wasd[poradi] = temp
+# for kanon in kanony:
+    # print(wasd)
+    # poradi = checkni_diagonaly(kanon)
+    poradi = 8
+    docasna = wasd[poradi]
+    docasna.append(kanon[0])
+    # print(docasna)
+    wasd[poradi] = docasna
 
 
 print(wasd)
-print(wdas)
+print(something_really_different)
