@@ -1,9 +1,9 @@
 # import
-from tqdm import tqdm
-import numpy as np
+# from tqdm import tqdm
+# import numpy as np
 
 # načtu vstupní soubor
-inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/vstup"
 file = open(inputf, "r")
 
 # najdu velikost zahrady a najdu kolik kanónů
@@ -113,11 +113,32 @@ for dia in range(len(wasd)):
 escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
 for dia in wasd:
     if len(dia) > 1:
-        escribo.write(str(dia[0]))
-        escribo.write(" ")
-        escribo.write(str(dia[1]))
-        print(dia[0])
-        print(dia[1])
+        # escribo.write(str(dia[0]))
+        # escribo.write(" ")
+        # escribo.write(str(dia[1]))
+        # print(dia[0])
+        # print(dia[1])
+        break
+if len(dia) < 2:
+    print("faking nothing")
+    exit()
 
-# print(wasd)
+indx = wasd.index(dia)
+print(dia, indx)
+
+k_uno_y = indx - x + dia[0]
+k_dos_y = indx - x + dia[1]
+
+k_uno = []
+k_uno.append(dia[0])
+k_uno.append(k_uno_y)
+
+k_dos = []
+k_dos.append(dia[1])
+k_dos.append(k_dos_y)
+
+kanony.index(k_uno)
+kanony.index(k_dos)
+
+print(wasd)
 # print(wdas)
