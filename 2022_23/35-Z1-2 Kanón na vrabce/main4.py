@@ -3,7 +3,7 @@ from tqdm import tqdm
 import numpy as np
 
 # načtu vstupní soubor
-inputf = "2022_23/35-Z1-2 Kanón na vrabce/vstup"
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
 file = open(inputf, "r")
 
 # najdu velikost zahrady a najdu kolik kanónů
@@ -63,40 +63,61 @@ def read_kanon(lp):
     kanontmp.append(y)
     # kanontmp.append(lp)
 
-    kanony.append(kanontmp)
+    kanony.append(kanontmp) 
 
 for a in range(kolik):
     read_kanon(a)
 
-print(kanony)
+# print(kanony)
 
 def checkni_diagonaly(kanon):
-    # print(kanon, end = " ")
     temp = x + kanon[1] - kanon[0]
-    # print(temp)
+    return temp
+
+def checkni_diagonaly_naopak(kanon):
+    temp = x + kanon[0] - kanon[1]
     return temp
 
 wasd = [] # zleva nahoře doprava dolů
-something_really_different = [] # zprava nahoře doleva dolů
-empty = []
+wdas = [] # zprava nahoře doleva dolů
 
 
 for _ in range(x + y):
+    empty = []
     wasd.append(empty)
-    something_really_different.append(empty)
+    empty = []
+    wdas.append(empty)
 
-print(wasd)
-print(something_really_different)
+# wasd = str(wasd)
+wasd = list(wasd)
 
-# for kanon in kanony:
-    # print(wasd)
-    # poradi = checkni_diagonaly(kanon)
-    poradi = 8
+# print(wasd)
+# print(wdas)
+
+for kanon in kanony:
+    poradi = checkni_diagonaly(kanon)
     docasna = wasd[poradi]
     docasna.append(kanon[0])
-    # print(docasna)
     wasd[poradi] = docasna
 
+# for kanon in kanony:
+#     poradi = checkni_diagonaly_naopak(kanon)
+#     docasna = wdas[poradi]
+#     docasna.append(kanon[0])
+#     wdas[poradi] = docasna
 
-print(wasd)
-print(something_really_different)
+for dia in range(len(wasd)):
+    temp = wasd[dia]
+    temp.sort()
+
+escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
+for dia in wasd:
+    if len(dia) > 1:
+        escribo.write(str(dia[0]))
+        escribo.write(" ")
+        escribo.write(str(dia[1]))
+        print(dia[0])
+        print(dia[1])
+
+# print(wasd)
+# print(wdas)
