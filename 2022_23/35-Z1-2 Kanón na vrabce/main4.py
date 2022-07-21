@@ -1,12 +1,13 @@
 # import
-# from tqdm import tqdm
-# import numpy as np
+from tqdm import tqdm
+import sys
 
 # načtu vstupní soubor
-inputf = "2022_23/35-Z1-2 Kanón na vrabce/vstup"
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/02.in"
 file = open(inputf, "r")
 
 # najdu velikost zahrady a najdu kolik kanónů
+print("zahrada")
 line = file.readline()
 x_line = ""
 for a in line:
@@ -36,8 +37,9 @@ kolik = int(kolikk)
 
 
 # import pole s pozicemi kanónů
+print("read pole")
 kanony = []
-def read_kanon(lp):
+def read_kanon():
     global file
     global kanony
 
@@ -66,7 +68,7 @@ def read_kanon(lp):
     kanony.append(kanontmp) 
 
 for a in range(kolik):
-    read_kanon(a)
+    read_kanon()
 
 # print(kanony)
 
@@ -78,22 +80,24 @@ def checkni_diagonaly_naopak(kanon):
     temp = x + kanon[0] - kanon[1]
     return temp
 
-wasd = [] # zleva nahoře doprava dolů
-wdas = [] # zprava nahoře doleva dolů
+# wasd = [] # zleva nahoře doprava dolů
+# wdas = [] # zprava nahoře doleva dolů
 
+print("make pole")
+wasd = [[]] * (x + y)# zleva nahoře doprava dolů
+wdas = [[]] * (x + y)# zprava nahoře doleva dolů
+print(sys.getsizeof(wasd))
 
-for _ in range(x + y):
-    empty = []
-    wasd.append(empty)
-    empty = []
-    wdas.append(empty)
+# for _ in tqdm(range(x + y)):
+#     empty = []
+#     wasd.append(empty)
+#     empty = []
+#     wdas.append(empty)
 
-# wasd = str(wasd)
-wasd = list(wasd)
 
 # print(wasd)
 # print(wdas)
-
+print("check diagonaly")
 for kanon in kanony:
     poradi = checkni_diagonaly(kanon)
     docasna = wasd[poradi]
@@ -105,11 +109,11 @@ for kanon in kanony:
 #     docasna = wdas[poradi]
 #     docasna.append(kanon[0])
 #     wdas[poradi] = docasna
-
+print("sort")
 for dia in range(len(wasd)):
     temp = wasd[dia]
     temp.sort()
-
+print("find answer")
 escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
 for dia in wasd:
     if len(dia) > 1:
@@ -124,7 +128,7 @@ if len(dia) < 2:
     exit()
 
 indx = wasd.index(dia)
-print(dia, indx)
+# print(dia, indx)
 
 k_uno_y = indx - x + dia[0]
 k_dos_y = indx - x + dia[1]
@@ -137,8 +141,16 @@ k_dos = []
 k_dos.append(dia[1])
 k_dos.append(k_dos_y)
 
-kanony.index(k_uno)
-kanony.index(k_dos)
+escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
 
-print(wasd)
+escribo.write(str(kanony.index(k_uno)))
+escribo.write(" ")
+escribo.write(str(kanony.index(k_dos)))
+
+print(str(kanony.index(k_uno)), end = " ")
+print(str(kanony.index(k_dos)))
+
+
+
+# print(wasd)
 # print(wdas)

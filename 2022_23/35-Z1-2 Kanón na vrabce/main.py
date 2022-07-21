@@ -2,7 +2,7 @@
 from tqdm import tqdm
 import numpy as np
 
-inputf = "2022_23/35-Z1-2 Kanón na vrabce/02.in"
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
 file = open(inputf, "r")
 
 # nastavení velikosti zahrady
@@ -116,22 +116,23 @@ for lpnb in tqdm(range(len(kanony))):
         if act_y < 0 or act_y >= x: #idk it just works
             pass
         else:
-            if zahrada[act_y, sloupec] != -1:
+            if zahrada[act_y] [sloupec] != -1:
                 tryit = True
-                # print(act_y, sloupec)
-                # print(zahrada[act_y, sloupec])
-                if zahrada[act_y, sloupec] == lpnb:
+                # print[act_y] [sloupec)
+                # print(zahrada[act_y] [sloupec])
+                if zahrada[act_y] [sloupec] == lpnb:
                     after_thisone = True
                     tryit = False
                 if tryit:
                     if not after_thisone: # means when you are before canon that you are checking
-                        closest_before = int(zahrada[act_y, sloupec])
+                        print(zahrada[act_y][sloupec])
+                        closest_before = int(zahrada[act_y][sloupec])
 
                     if after_thisone: # means when you are after canon that you are checking
                         closest_after = int(zahrada[act_y, sloupec])
                         continue
                     
-                        # print(zahrada[act_y, sloupec])
+                        # print(zahrada[act_y] [sloupec])
 
         temp.append(closest_before)
         temp.append(closest_after)
