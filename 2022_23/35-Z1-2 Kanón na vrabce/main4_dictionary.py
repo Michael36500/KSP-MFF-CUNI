@@ -1,5 +1,5 @@
 # import
-# from tqdm import tqdm
+from tqdm import tqdm
 # import sys
 
 # načtu vstupní soubor
@@ -7,7 +7,7 @@ inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
 file = open(inputf, "r")
 
 # najdu velikost zahrady a najdu kolik kanónů
-print("zahrada")
+# print("zahrada")
 line = file.readline()
 x_line = ""
 for a in line:
@@ -33,11 +33,11 @@ for a in line:
     kolikk = str(kolikk) + str(a)
 kolik = int(kolikk) 
 
-# print(x, y, kolik)
+# # print(x, y, kolik)
 
 
 # import pole s pozicemi kanónů
-print("read pole")
+# print("read pole")
 kanony = []
 def read_kanon():
     global file
@@ -70,15 +70,15 @@ def read_kanon():
 for a in range(kolik):
     read_kanon()
 
-print(kanony)
+# print(kanony)
 
 def checkni_diagonaly(kanon):
     temp = x + kanon[1] - kanon[0]
     return temp
 
-def checkni_diagonaly_naopak(kanon):
-    temp = x + kanon[0] - kanon[1]
-    return temp
+# def checkni_diagonaly_naopak(kanon):
+#     temp = x + kanon[0] - kanon[1]
+#     return temp
 
 # wasd = [] # zleva nahoře doprava dolů
 # wdas = [] # zprava nahoře doleva dolů
@@ -103,7 +103,7 @@ wasd = {}
 # print(wasd)
 # print(wdas)
 print("check diagonaly")
-for kanon in kanony:
+for kanon in tqdm(kanony):
     poradi = checkni_diagonaly(kanon)
     if poradi in wasd:
         docasna = wasd[poradi]
@@ -121,55 +121,45 @@ for kanon in kanony:
     # else:
     #     wasd.update(poradi = kanon[0])
 
-print(wasd)
+def runit():
+    global kanony
+    global wasd
+    global x
 
-# for kanon in kanony:
-#     poradi = checkni_diagonaly_naopak(kanon)
-#     docasna = wdas[poradi]
-#     docasna.append(kanon[0])
-#     wdas[poradi] = docasna
-# print("sort")
-# for dia in tqdm(range(len(wasd))):
-#     temp = wasd[dia]
-#     if temp == []:
-#         continue
-#     temp.sort()
+    for a in wasd:
+        temp = wasd[a]
+        if len(temp) > 1:
+            temp.sort()
+            kan_uno = temp[0]
+            kan_dos = temp[1]
 
-# print("find answer")
-# escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
-# for dia in wasd:
-#     if len(dia) > 1:
-#         break
-# if len(dia) < 2:
-#     print("faking nothing")
-#     exit()
+            kan_uno_y = a + kan_uno - x
+            kan_dos_y = a + kan_dos - x
 
-# indx = wasd.index(dia)
+            kan_uno_list = []
+            kan_uno_list.append(kan_uno)
+            kan_uno_list.append(kan_uno_y)
 
-# k_uno_y = indx - x + dia[0]
-# k_dos_y = indx - x + dia[1]
+            kan_dos_list = []
+            kan_dos_list.append(kan_dos)
+            kan_dos_list.append(kan_dos_y)
 
-# k_uno = []
-# k_uno.append(dia[0])
-# k_uno.append(k_uno_y)
+            # print(kan_dos_list)
+            kan_uno_indx = kanony.index(kan_uno_list)
+            kan_dos_indx = kanony.index(kan_dos_list)
 
-# # print(indx, x, len(dia), k_uno_y)
-# # print(wasd)
-
-# k_dos = []
-# k_dos.append(dia[1])
-# k_dos.append(k_dos_y)
-
-# escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
-
-# escribo.write(str(kanony.index(k_uno)))
-# escribo.write(" ")
-# escribo.write(str(kanony.index(k_dos)))
-
-# print(str(kanony.index(k_uno)), end = " ")
-# print(str(kanony.index(k_dos)))
+            return kan_uno_indx, kan_dos_indx
 
 
 
-# # print(wasd)
-# # print(wdas)
+print("find answer")
+escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
+
+out_str = str(runit())
+out_str = out_str.replace("(", "")
+out_str = out_str.replace(")", "")
+out_str = out_str.replace(",", "")
+
+print(out_str)
+
+escribo.write(out_str)

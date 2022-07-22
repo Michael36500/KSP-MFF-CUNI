@@ -1,8 +1,7 @@
-wasd = [[], [], []]
+list = [[]] * 10
 
-poradi = 2
-docasna = wasd[poradi]
-docasna.append(6)
-wasd[poradi] = docasna
+temp = list[3]
+temp.append("something")
+list[3] = temp
 
-print(wasd)
+print(list)

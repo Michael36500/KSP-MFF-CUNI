@@ -3,7 +3,7 @@ from tqdm import tqdm
 import sys
 
 # načtu vstupní soubor
-inputf = "2022_23/35-Z1-2 Kanón na vrabce/02.in"
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
 file = open(inputf, "r")
 
 # najdu velikost zahrady a najdu kolik kanónů
@@ -86,7 +86,11 @@ def checkni_diagonaly_naopak(kanon):
 print("make pole")
 wasd = [[]] * (x + y)# zleva nahoře doprava dolů
 wdas = [[]] * (x + y)# zprava nahoře doleva dolů
-print(sys.getsizeof(wasd))
+# wasd *= 1
+# wdas *= 1
+# print(sys.getsizeof(wasd))
+# wasd = [] # zleva nahoře doprava dolů
+# wdas = [] # zprava nahoře doleva dolů
 
 # for _ in tqdm(range(x + y)):
 #     empty = []
@@ -110,25 +114,22 @@ for kanon in kanony:
 #     docasna.append(kanon[0])
 #     wdas[poradi] = docasna
 print("sort")
-for dia in range(len(wasd)):
+for dia in tqdm(range(len(wasd))):
     temp = wasd[dia]
+    if temp == []:
+        continue
     temp.sort()
+
 print("find answer")
 escribo = open("2022_23/35-Z1-2 Kanón na vrabce/out.txt", "w")
 for dia in wasd:
     if len(dia) > 1:
-        # escribo.write(str(dia[0]))
-        # escribo.write(" ")
-        # escribo.write(str(dia[1]))
-        # print(dia[0])
-        # print(dia[1])
         break
 if len(dia) < 2:
     print("faking nothing")
     exit()
 
 indx = wasd.index(dia)
-# print(dia, indx)
 
 k_uno_y = indx - x + dia[0]
 k_dos_y = indx - x + dia[1]
@@ -136,6 +137,9 @@ k_dos_y = indx - x + dia[1]
 k_uno = []
 k_uno.append(dia[0])
 k_uno.append(k_uno_y)
+
+# print(indx, x, len(dia), k_uno_y)
+# print(wasd)
 
 k_dos = []
 k_dos.append(dia[1])
