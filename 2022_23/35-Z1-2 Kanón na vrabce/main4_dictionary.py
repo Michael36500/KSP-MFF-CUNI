@@ -1,6 +1,6 @@
 # import
-from tqdm import tqdm
-import sys
+# from tqdm import tqdm
+# import sys
 
 # načtu vstupní soubor
 inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
@@ -70,7 +70,7 @@ def read_kanon():
 for a in range(kolik):
     read_kanon()
 
-# print(kanony)
+print(kanony)
 
 def checkni_diagonaly(kanon):
     temp = x + kanon[1] - kanon[0]
@@ -107,10 +107,19 @@ for kanon in kanony:
     poradi = checkni_diagonaly(kanon)
     if poradi in wasd:
         docasna = wasd[poradi]
+        # print(docasna)
         docasna.append(kanon[0])
-        wasd[poradi] = docasna
+        # wasd[poradi] = docasna # není potřeba
     else:
-        wasd.update(poradi = kanon[0])
+        empty = []
+        empty.append(kanon[0])
+        wasd[poradi] = empty
+    # if poradi in wasd:
+    #     docasna = wasd[poradi]
+    #     docasna.append(kanon[0])
+    #     wasd[poradi] = docasna
+    # else:
+    #     wasd.update(poradi = kanon[0])
 
 print(wasd)
 
