@@ -3,7 +3,7 @@ from tqdm import tqdm
 # import sys
 
 # načtu vstupní soubor
-inputf = "2022_23/35-Z1-2 Kanón na vrabce/01.in"
+inputf = "2022_23/35-Z1-2 Kanón na vrabce/05.in"
 file = open(inputf, "r")
 
 # najdu velikost zahrady a najdu kolik kanónů
